@@ -1,0 +1,13 @@
+
+<h2>lista zadañ</h2>
+<label>
+    Nowe zadanie:<input type="text" [(ngModel)]="newToDoTitle" (keyup.enter)="addToDo()"/>
+</label>
+<button type="submit" (click)="addToDo()">Dodaj</button>
+<ul>
+    <li *ngFor="let todo of todos; let ind=index">
+        <input type="checkbox" [(ngModel)]="todo.complete"/>
+        <span [ngClass]="{'checked':todo.complete}">{{todo.title}}</span>
+        <span class="delete-icon" (click)="deleteToDo(ind)">[X]</span>
+    </li>
+</ul>
